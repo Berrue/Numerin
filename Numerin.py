@@ -14,6 +14,7 @@ termometro = None
 termometroFacil = [12,7,5,2]
 termometroNormal = [30,15,7,5]
 termometroDificil = [50,30,10,8]
+ganadas = 0 
 while True:
     print ("--------- Numerin V 0.1 ---------")
     dificultad= input("Selecciona la dificultad inicial: \n 1.Facil \n 2.Normal \n 3.Dificil\n")
@@ -55,8 +56,8 @@ while True:
 print (f'Elegiste la dificultad {nombreDificultad}, ¿estas listo?')
 
 while True: 
-    print (numeroMaestro)
     tirada = input("¿Que numero sera?: ")
+    print (f'Intentos restantes: {intentos}')
     try:
         tirada = int(tirada)
     except ValueError:
@@ -75,7 +76,11 @@ while True:
             print ("🌋 Muy caliente")
     else:
         print ("Acertaste!! felicitaciones!")
-        puntuacion = puntuacion + puntuacionGanada
+        if intentosMaximos == intentos:
+            puntuacionGanada = puntuacionGanada * 3
+        ganadas = ganadas + 1
+        multiplicador = ganadas * 1.25
+        puntuacion = puntuacion + (puntuacionGanada * multiplicador)
         verificar = input(f'Puntuacion acumulada: {puntuacion} \n ¿Queres seguir jugando? : ')
         if verificar.lower() == "si":
             intentos = intentosMaximos

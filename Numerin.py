@@ -57,6 +57,7 @@ print (f'Elegiste la dificultad {nombreDificultad}, ¿estas listo?')
 
 while True: 
     tirada = input("¿Que numero sera?: ")
+    print (numeroMaestro)
     print (f'Intentos restantes: {intentos}')
     try:
         tirada = int(tirada)
